@@ -92,3 +92,21 @@ arrowRight.addEventListener('click', function () {
 
 // Afficher la première diapositive au chargement de la page
 updateCarousel(currentIndex);
+// Fonction pour démarrer le défilement automatique
+function startAutoSlide() {
+    autoSlideInterval = setInterval(function () {
+        updateCarousel(currentIndex + 1); // Passe à la diapositive suivante toutes les 5 secondes (5000 ms)
+    }, 5000); // Change de slide toutes les 5 secondes
+}
+
+// Fonction pour réinitialiser le défilement automatique après interaction
+function resetAutoSlide() {
+    clearInterval(autoSlideInterval); // Arrête le précédent intervalle
+    startAutoSlide(); // Relance un nouvel intervalle
+}
+
+// Afficher la première diapositive au chargement de la page
+updateCarousel(currentIndex);
+
+// Démarrer le défilement automatique
+startAutoSlide();
